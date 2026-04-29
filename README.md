@@ -1,1 +1,1 @@
-# freeRTOS
+This repo contains all ESP-IDF projects I created while following a helpful FreeRTOS course for ESP32 using ESP-IDF that I found on GitHub. This repo will be updated to document my progress as I continue through the course. If you are interested in which course I am following click [HERE](https://github.com/god233012yamil/30-Day-FreeRTOS-Course-for-ESP32-Using-ESP-IDF).
