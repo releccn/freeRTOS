@@ -1,3 +1,8 @@
+# ESP-IDF
+build/
+.vscode/
+
+
 # Prerequisites
 *.d
 
