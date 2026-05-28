@@ -5,6 +5,7 @@ build/
 .clangd
 sdkconfig
 sdkconfig.old
+.gitignore
 
 # Prerequisites
 *.d
