@@ -1,3 +1,91 @@
+<<<<<<< Updated upstream
+/**
+ * @file
+ * @brief Power Management with FreeRTOS on ESP32 — Light Sleep + Timer Wakeup
+ *
+ * Overview:
+ *   Demonstrates how to use ESP-IDF power management APIs together with
+ *   FreeRTOS to periodically enter Light Sleep and wake via a timer.
+ *   A simulated sensor task runs under FreeRTOS; the main loop repeatedly
+ *   sleeps and wakes every 5 seconds using the RTC timer wake source.
+ *
+ * What this example shows:
+ *   1) Enabling timer wakeup with `esp_sleep_enable_timer_wakeup`.
+ *   2) Entering light sleep using `esp_light_sleep_start`.
+ *   3) Running a FreeRTOS task that simulates sensor work using delays.
+ *   4) Basic logging around sleep/wake transitions.
+ *
+ * Hardware/SDK requirements:
+ *   - ESP32 (any ESP-IDF-supported target with Light Sleep capability)
+ *   - ESP-IDF v4.x+ (or newer)
+ *
+ * Build/Flash/Monitor (example):
+ *   idf.py set-target esp32
+ *   idf.py build flash monitor
+ *
+ * Power notes:
+ *   - Light Sleep reduces power consumption while keeping RAM and most
+ *     peripherals powered; CPU is paused until wakeup.
+ *   - Choose an appropriate wake period; this example uses 5 seconds.
+ *   - Consider pausing unnecessary peripherals before light sleep for
+ *     best results.
+ *
+ * Args:
+ *   (None)
+ *
+ * Returns:
+ *   (None)
+ *
+ * Example:
+ *   - Observe logs: the system announces entering light sleep, then wakes
+ *     after ~5 s. The sensor task continues to log every 2 s.
+ *
+ * Limitations:
+ *   - This is a minimal example. In production, handle all error returns
+ *     and coordinate sleep with active peripherals and tasks.
+ */
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+#include <stdio.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_sleep.h"
+#include "esp_log.h"
+#include "esp_err.h"
+
+#define TAG "DAY24_PM"
+#define SENSOR_TASK_STACK   (2048)
+#define SENSOR_TASK_PRIO    (5)
+#define SENSOR_PERIOD_MS    (2000)
+#define WAKE_PERIOD_US      (5000000ULL)  // 5 seconds
+
+/**
+ * Simulated sensor reading task.
+ *
+ * Periodically simulates a sensor read (via logging) and then delays to
+ * emulate processing time or sampling interval.
+ *
+ * Args:
+ *   pvParameter: Unused task argument (pass NULL).
+ *
+ * Returns:
+ *   This function never returns; it loops forever.
+ *
+ * Notes:
+ *   - Replace the logging call with real sensor I/O as needed.
+ *   - The delay uses `pdMS_TO_TICKS(SENSOR_PERIOD_MS)` to be RTOS-tick-safe.
+ */
+static void sensor_task(void *pvParameter) {
+    (void)pvParameter;
+    while (1) {
+        ESP_LOGI(TAG, "Reading sensor...");
+        vTaskDelay(pdMS_TO_TICKS(SENSOR_PERIOD_MS));
+    }
+}
+<<<<<<< Updated upstream
+=======
+=======
 /**
  * @file
  * @brief Power Management with FreeRTOS on ESP32 — Light Sleep + Timer Wakeup
@@ -79,6 +167,7 @@ static void sensor_task(void *pvParameter) {
         vTaskDelay(pdMS_TO_TICKS(SENSOR_PERIOD_MS));
     }
 }
+>>>>>>> Stashed changes
 
 /**
  * Main application entry point.
@@ -141,4 +230,9 @@ void app_main(void) {
                 break;
         }
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> bea5393 (pushing new)
+>>>>>>> Stashed changes

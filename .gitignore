@@ -1,6 +1,10 @@
 # ESP-IDF
 build/
 .vscode/
+.devcontainer/
+.clangd
+sdkconfig
+sdkconfig.old
 
 
 # Prerequisites

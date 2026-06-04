@@ -7,8 +7,16 @@
 		"vscode": {
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "bash",
+<<<<<<< Updated upstream
 				"idf.espIdfPath": "/opt/esp/idf",
 				"idf.toolsPath": "/opt/esp",
+=======
+<<<<<<< HEAD
+=======
+				"idf.espIdfPath": "/opt/esp/idf",
+				"idf.toolsPath": "/opt/esp",
+>>>>>>> bea5393 (pushing new)
+>>>>>>> Stashed changes
 				"idf.gitPath": "/usr/bin/git"
 			},
 			"extensions": [
